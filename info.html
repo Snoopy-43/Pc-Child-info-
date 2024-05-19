@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Childs Information</title>
+<link rel ='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="container">
+    <h2>Fill your Child's Information here</h2>
+    <div class="form-container">
+        <form id="childForm">
+            <div class="child-info">
+                <div class="input-name">
+                    <i class="fa fa-user lock"></i>
+                    <input type="text" placeholder="First Name" required class="name">
+                    <span>
+                        <i class="fa fa-user lock"></i>
+                        <input type="text" placeholder="Last Name" required class="name">  
+                    </span>
+                </div>
+                <div class="input-name">
+                    <i class="fa fa-calendar lock"></i>
+                    <input type="number" placeholder="Enter your child's Age" required class="text-name">
+                </div>
+                <div class="input-name">
+                    <input type="radio" class="radio-btn" name="gender" value="Male">
+                    <label style="margin-right: 30px;">Male</label>
+
+                    <input type="radio" class="radio-btn" name="gender" value="Female">
+                    <label>Female</label>
+                </div>
+                <div class="input-name">
+                    <i class="fas fa-heart lock"></i>
+                    <input type="text" placeholder="Relation" required class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <input type="checkbox" class="check-btn" id="cb">
+                    <label for="cb" class="check">I agree on the given information is correct</label>
+                </div>
+                <div class="input-name">
+                    <button type="button" class="add" style="background-color: rgb(9, 119, 9);" onclick="addNewChildForm()">Add</button>
+                    <button type="button" class="delete" style="background-color: rgb(167, 7, 7);" onclick="deleteChild(this)">Delete</button>
+                </div>
+            </div>
+         </form> 
+        <div class="register-container">
+       <input type="button" class="button" value="Register" onclick="registerChildren()">
+       </div>
+    </div>
+</div>
+
+<script>
+    function addNewChildForm() {
+        var childInfo = document.querySelector('.child-info');
+        var clonedChildInfo = childInfo.cloneNode(true);
+        document.getElementById('childForm').appendChild(clonedChildInfo);
+    }
+
+    function deleteChild(element) {
+        var childInfo = element.parentNode.parentNode;
+        childInfo.parentNode.removeChild(childInfo);
+    }
+
+    function registerChildren() {
+        var childForms = document.querySelectorAll('.child-info');
+        var isValid = true;
+
+        childForms.forEach(function(childForm) {
+            var inputs = childForm.querySelectorAll('input[type="text"], input[type="number"], input[type="radio"]');
+            inputs.forEach(function(input) {
+                if (input.value === '') {
+                    isValid = false;
+                }
+            });
+        });
+
+        if (isValid) {
+            alert('All children registered successfully!');
+        } else {
+            alert('Please fill all child information before registering.');
+        }
+    }
+</script>
+
+</body>
+</html>
