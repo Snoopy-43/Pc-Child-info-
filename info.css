@@ -91,30 +91,16 @@ body {
 }
 
 .add,
-.delete {
+.delete,button {
     color: #fff;
     width: calc(30% - 3px); 
-    height: 26px;
-    font-size: 13px;
+    height: 28px;
+    font-size: 15px;
     border: none;
     outline: none;
     cursor: pointer;
     margin-bottom: 10px;
 }
-
-.button {
-    background-color: rgb(13, 13, 51);
-    color: white;
-    height: 35px;
-    line-height: 35px;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
 .button:hover {
     background: green;
 }
