@@ -42,29 +42,16 @@
                     <label for="cb" class="check">I agree on the given information is correct</label>
                 </div>
                 <div class="input-name">
-                    <button type="button" class="add" style="background-color: rgb(9, 119, 9);" onclick="addNewChildForm()">Add</button>
-                    <button type="button" class="delete" style="background-color: rgb(167, 7, 7);" onclick="deleteChild(this)">Delete</button>
+                    <button type="button" class="add" style="background-color: rgb(9, 119, 9);" onclick="addNewChildForm()">Add more</button>
+                    <button type="button" class="button"style="background-color: rgb(13, 13, 51);" onclick="registerChildren()">Register</button>
+                    <button type="button" class="delete" style="background-color: rgb(202, 81, 10);" onclick="deleteChild(this)">Continue</button>
                 </div>
             </div>
          </form> 
-        <div class="register-container">
-       <input type="button" class="button" value="Register" onclick="registerChildren()">
-       </div>
     </div>
 </div>
 
 <script>
-    function addNewChildForm() {
-        var childInfo = document.querySelector('.child-info');
-        var clonedChildInfo = childInfo.cloneNode(true);
-        document.getElementById('childForm').appendChild(clonedChildInfo);
-    }
-
-    function deleteChild(element) {
-        var childInfo = element.parentNode.parentNode;
-        childInfo.parentNode.removeChild(childInfo);
-    }
-
     function registerChildren() {
         var childForms = document.querySelectorAll('.child-info');
         var isValid = true;
@@ -79,9 +66,9 @@
         });
 
         if (isValid) {
-            alert('All children registered successfully!');
+            alert('Your children registered successfully!');
         } else {
-            alert('Please fill all child information before registering.');
+            alert('Please fill your child information before registering.');
         }
     }
 </script>
